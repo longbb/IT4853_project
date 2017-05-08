@@ -1,8 +1,10 @@
 module ApplicationHelper
   def concat_array array1, array2
-    array2.each do |element|
-      array1.push element
+    if array2.present?
+      array2.each do |element|
+        array1.push element
+      end
     end
-    return array2
+    return array1
   end
 end

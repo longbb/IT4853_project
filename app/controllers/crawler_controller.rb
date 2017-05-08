@@ -4,8 +4,7 @@ class CrawlerController < ApplicationController
     un_crawl_product = EbayProduct.where(status: "un_crawl")
     concat_array @un_crawl, un_crawl_product
     @un_crawl.each do |product|
-      crawl product.link
-      un_crawl_product = EbayProduct.where(status: "un_crawl")
+      un_crawl_product = crawl product.link
       concat_array @un_crawl, un_crawl_product
     end
   end
@@ -94,13 +93,14 @@ class CrawlerController < ApplicationController
                 quantity_sold: value[:quantitySold],
                 inventory: value[:quantityAvailable]
               }
-              properties = Hash.new
+              properties = Array.new
               value[:traitValuesMap].each do |key_prop, value_prop|
-                properties[key_prop] = variant_properties[value_prop][:name]
+                properties.push variant_properties[value_prop][:name]
                 if variant_properties[value_prop][:image_url].present?
                   variant[:image_url] = variant_properties[value_prop][:image_url]
                 end
               end
+              variant[:properties] = properties
               unless variant[:image_url].present?
                 variant[:image_url] = image_array.first[:big_pic]
               end
@@ -108,6 +108,9 @@ class CrawlerController < ApplicationController
             end
           elsif item_info_hash["raptor.vi.ActionPanel"].present?
             item_price = item_info_hash["raptor.vi.ActionPanel"][2][:isModel][:binPrice]
+            unless item_price
+              item_price = item_info_hash["raptor.vi.ActionPanel"][2][:isModel][:bidPrice]
+            end
             item_inventory = item_info_hash["raptor.vi.ActionPanel"][2][:isModel][:remainQty]
             item_sold = item_info_hash["raptor.vi.ActionPanel"][2][:isModel][:qtyPurchased]
 
@@ -146,10 +149,17 @@ class CrawlerController < ApplicationController
         }
 
         other_products = doc.css("a[class='mfe-reco-link']")
+        product_un_crawls = Array.new
         other_products.each do |product|
-          product_exist = EbayProduct.find_by(link: product["href"])
-          unless  product_exist.present?
-            EbayProduct.create(link: product["href"], status: "un_crawl")
+          link = product["href"]
+          if link.include? "http://www.ebay.com/itm"
+            ebay_product_id = link.split("/")[5].split("?")[0]
+            new_link = "http://www.ebay.com/itm//" + ebay_product_id
+            product_exist = EbayProduct.find_by(link: new_link)
+            unless  product_exist.present?
+              product_un_crawl = EbayProduct.create(link: new_link, status: "un_crawl")
+              product_un_crawls.push product_un_crawl
+            end
           end
         end
 
@@ -159,9 +169,11 @@ class CrawlerController < ApplicationController
         product_will_crawl.update(status: "crawled")
 
         sleep 2
+        return product_un_crawls
       end
     rescue Exception => e
       puts ("Has an exception")
+      return []
     end
   end
 end

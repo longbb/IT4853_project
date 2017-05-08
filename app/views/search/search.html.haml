@@ -1,0 +1,19 @@
+.container-fluid.search
+  .row
+    .col-xs-6.col-xs-offset-4
+      %img.logo-img{ src: asset_path("logo.png") }
+  .row
+    .col-xs-8.col-xs-offset-2
+      = form_tag results_path, method: :get do
+        .input-group
+          .input-group-btn.search-panel
+          = text_field_tag :query, "", placeholder: "Enter your search query here", class: "form-control"
+          %span.input-group-btn
+            %button.btn.btn-default{ type: "submit" }
+              %span.glyphicon.glyphicon-search
+%center{ style: "margin-top: 20px;" }
+  %h5
+    Find all products from
+    %a{ href: "http://www.ebay.com/", target: "_blank" }
+      ebay.com
+
