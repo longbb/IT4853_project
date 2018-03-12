@@ -1,0 +1,166 @@
+.row.space-top
+  .col-md-12
+    .panel
+      %form{"accept-charset" => "UTF-8", :action => "", :method => "GET"}
+        .panel-body.align-center
+          .row
+            .col-xs-9
+              %input.form-control.input-lg{:name => "filter[keywords]", :placeholder => "Enter Keywords", :type => "text"}/
+            .col-md-3.col-xs-3.align-right
+              %button.btn.btn-primary.btn-lg.btn-block{:type => "submit"} Search
+%div
+  .row.space-top
+    .col-md-12
+      .product-detail
+        .container-fluid
+          / Nav tabs
+          %ul.nav.nav-tabs{:role => "tablist"}
+            %li.active{:role => "presentation"}
+              %a{"data-toggle" => "tab", :href => "#product", :role => "tab"} Product
+            %li{:role => "presentation"}
+              %a{"data-toggle" => "tab", :href => "#variants", :role => "tab"}
+                Variants
+                %span.badge.badge-tab.number-variants{:style => "margin-left: 3px;"}
+            %li{:role => "presentation"}
+              %a{"data-toggle" => "tab", :href => "#images", :role => "tab"} Images
+          / Tab panes
+          .tab-content
+            #product.tab-pane.active{:role => "tabpanel"}
+              .tabs-body
+                .row
+                  .col-md-12
+                    %h3
+                      %a.blue-color{:href => "#", :target => "_blank"}
+                        Baseus Solid color For Apple iPhone 7 Case For iPhone 7 Plus Case 0.75mm Slim Soft TPU Back Full Protective Cover Case For 7plus
+                .row
+                  .col-md-3.col-xs-4
+                    .product-img
+                      %img.responsive-img.border-img{:alt => "Baseus Solid color For Apple iPhone 7 Case For iPhone 7 Plus Case 0.75mm Slim Soft TPU Back Full Protective Cover Case For 7plus", :src => "https://img.oberlo.com/?url=https://ae01.alicdn.com/kf/HTB1OEgUPXXXXXbmXVXXq6xXFXXXx/Baseus-Solid-color-For-Apple-iPhone-7-Case-For-iPhone-7-Plus-Case-0-75mm-Slim.jpg"}/
+                  .col-md-9.col-xs-8
+                    .container-flex
+                    .itemAttr
+                      .section
+                        %h2.secHd Item specifics
+                        %table{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                          %tbody
+                            %tr
+                              %td.attrLabels
+                                Condition:
+                              %td{:width => "70.0%"}
+                                / ITEM CONDITION
+                                / If Attribute is having hidden text / link
+                                %div{"aria-live" => "polite"}
+                                  New:
+                                  %span#vi-cond-addl-info A brand-new, unused, unopened, undamaged item in its original packaging (where packaging is
+                                  %span#hiddenContent.u-dspn{"aria-expanded" => "false"}
+                                    applicable). Packaging should be the same as what is found in a retail store, unless the item is handmade or was packaged by the manufacturer in non-retail packaging, such as an unprinted box or plastic bag. See the seller's listing for full details.
+                                    %a.infoLink.u-nowrap{:href => "http://pages.ebay.com/help/sell/contextual/condition_1.html", :target => "_blank"}
+                                      See all condition definitions
+                                      %b.g-hdn - opens in a new window or tab
+                                  / TODO: remove hardcoded ID
+                                  %span#readFull.infoLink.u-nowrap
+                                    \...
+                                    %a{:href => "javascript:;"}
+                                      Read more
+                                      %b.g-hdn about the condition
+                                / </td>
+                              %td.attrLabels
+                                Brand:
+                              %td{ width: "70.0%" }
+                                %h2{:itemprop => "brand", :itemscope => "itemscope", :itemtype => "http://schema.org/Brand"}
+                                  %span{ itemprop: "name"} Unbranded
+                            %tr
+                              %td.attrLabels
+                                Size:
+                              %td{ width: "50.0%"}
+                                %span 12.8cm
+                              %td.attrLabels
+                                Type:
+                              %td{ width: "50.0%"}
+                                %span pen Refills
+                            %tr
+                              %td.attrLabels
+                                Size Type:
+                              %td{ width: "50.0%"}
+                                %span Regular
+                              %td.attrLabels
+                                Material:
+                              %td{ width: "50.0%"}
+                                %span plastic
+                            %tr
+                              %td.attrLabels
+                                MPN:
+                              %td{ width: "50.0%"}
+                                %h2{ itemprop: "mpn" } Does not apply
+                              %td.attrLabels
+                                UPC:
+                              %td{ width: "50.0%"}
+                                %h2{ itemprop: "gtin13" } Does not apply
+                            / Added for see review link
+            #variants.tab-pane{ role: "tabpanel" }
+              .tabs-body
+                %table.variants-table.old-style
+                  %thead
+                    %tr
+                      %th.nowrap{ colspan: "2" }
+                        %input{ type: "checkbox" }
+                        Use all
+                      %th SKU
+                      %th Color
+                      %th Material
+                      %th Cost
+                      %th Price
+                      %th Compared At Price
+                      %th{ style: "display: none;" } Weight
+                      %th Inventory
+                  %tbody
+                    %tr
+                      %td
+                        %input{ checked: "checked", type: "checkbox", value: "1" }
+                      %td
+                        %img.border-img{:src => "https://img.oberlo.com/?url=https://ae01.alicdn.com/kf/HTB1fAI0PXXXXXbVXFXXq6xXFXXX5/Baseus-Solid-color-For-Apple-iPhone-7-Case-For-iPhone-7-Plus-Case-0-75mm-Slim.jpg_640x640.jpg", :style => "max-width: 100px; max-height: 100px; margin: 5px"}/
+                      %td
+                        %input.form-control{ type: "text" }
+                      %td
+                        %input.form-control{ type: "text" }
+                      %td
+                        %input.form-control{ type: "text" }
+                      %td $4.49
+                      %td
+                        %input.form-control{ type: "text" }
+                      %td
+                        %input.form-control{ type: "text" }
+                      %td{:style => "display: none;"}
+                        %span.input-group{:style => "width:150px"}
+                          %input.form-control{ type: "text" }
+                          %span.input-group-addon kg
+                      %td 882
+            #images.tab-pane{ role: "tabpanel" }
+              .tabs-body
+                .row
+                  - 10.times do |i|
+                    .col-xs-3{ style: "padding-bottom: 15px;" }
+                      .image-select.selected
+                        .product-img
+                          .product-img-action
+                            %img.border-img{ src: "https://img.oberlo.com/?url=https://ae01.alicdn.com/kf/HTB1OEgUPXXXXXbmXVXXq6xXFXXXx/Baseus-Solid-color-For-Apple-iPhone-7-Case-For-iPhone-7-Plus-Case-0-75mm-Slim.jpg"}
+                          .image-link
+                            %img.pop{ src: "https://img.oberlo.com/?url=https://ae01.alicdn.com/kf/HTB1OEgUPXXXXXbmXVXXq6xXFXXXx/Baseus-Solid-color-For-Apple-iPhone-7-Case-For-iPhone-7-Plus-Case-0-75mm-Slim.jpg"}
+#imagemodal.modal{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        %h4#myModalLabel.modal-title Image preview
+      .modal-body
+        %img.imagepreview{:src => "", :style => "width: 400px; height: 264px;"}/
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+:javascript
+  $(".image-link").on("click", function() {
+    $(".imagepreview").attr("src", $(this).find("img").attr("src"));
+    $("#imagemodal").modal("show");
+  });
+  $(".number-variants").html($("#variants tbody tr").length);

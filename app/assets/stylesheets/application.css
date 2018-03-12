@@ -1,15 +1,313 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.row {
+  margin-left: -12px;
+  margin-right: -12px;
+}
+.space-top {
+  padding-top: 20px;
+}
+.row:after, .row:before {
+  content: " ";
+  display: table;
+}
+.panel {
+  background: #fff;
+  border: 1px solid #e1e8f0;
+  box-shadow: 0 2px 2px rgba(0,0,0,.02);
+  border-radius: 4px;
+}
+.panel .panel-body {
+  overflow: hidden;
+  padding: 20px;
+}
+.align-center {
+  text-align: center;
+}
+.form-control:not(select) {
+  background: #fff;
+}
+.form-control, input {
+  border: 1px solid #d2dce8;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #27b7d7;
+  background-image: none;
+  outline: none;
+}
+.btn-primary.active:not([disabled]):not(.disabled),
+.btn-primary.loading,
+.btn-primary:active:not([disabled]):not(.disabled) {
+  background-color: #179ac7;
+}
+.tabs {
+  background: #fff;
+  border: 1px solid #e1e8f0;
+  box-shadow: 0 2px 2px rgba(0,0,0,.02);
+  border-radius: 4px;
+  margin: 1px;
+}
+.tabs .nav-tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -1px;
+}
+.tabs .nav-tabs li {
+  display: inline-block;
+  border-right: 1px solid #e1e8f0;
+}
+.tabs .nav-tabs li.active {
+  border-bottom: 1px solid #fff;
+}
+a {
+  text-decoration: none;
+  background: transparent;
+  color: #1a81c5;
+  display: inline-block;
+  cursor: pointer;
+}
+.tabs .nav-tabs li a, .tabs .nav-tabs li span.for-checkbox {
+  display: block;
+  padding: 25px;
+  color: #202e3c;
+}
+.responsive-img {
+  max-width: 100%;
+}
+.border-img {
+  border: 1px solid #e1e8f0;
+}
+.tabs-body {
+  padding-top: 20px;
+  border-top: 1px solid #e1e8f0;
+  width: 100%;
+  height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#images .tabs-body {
+  padding-right: 30px;
+}
+.container-flex {
+  display: flex;
+  align-items: center;
+}
+.red-color {
+  color: #f97442;
+}
+
+
+.itemAttr {
+  clear: both;
+  font-size: small;
+  font-family: Arial;
+  color: #333;
+  text-align: left;
+  height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.itemAttr .section {
+  /*border: 1px solid #ccc;*/
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 10px;
+}
+.itemAttr h2 {
+  font-weight: normal;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+}
+.itemAttr h3, .itemAttr .secHd {
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-family: Trebuchet,"Trebuchet MS";
+  font-weight: bold;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+      font-family: "Helvetica neue",Helvetica,Verdana,Sans-serif;
+}
+}
+tbody{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  font-size: 100%;
+}
+.attrLabels {
+  white-space: nowrap;
+}
+.itemAttr td, th {
+  padding: 3px 30px 3px 0;
+  font-weight: normal;
+  vertical-align: top;
+}
+.g-hdn {
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  outline: medium none;
+  font-size: 0;
+  line-height: 0;
+}
+.itemAttr .infoLink {
+  font-size: 10px;
+  font-family: verdana !important;
+}
+.itemAttr .section h3, .itemAttr .section span {
+  font-weight: normal;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+}
+table.old-style th {
+  padding: 0 10px 10px;
+  font-weight: 300;
+  text-align: left;
+  border-bottom: 1px solid #e1e8f0;
+}
+.nowrap {
+  white-space: nowrap;
+}
+input[type=checkbox] {
+  margin-top: 0;
+  margin-bottom: -2px;
+  border-radius: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 1px solid #d2dce8;
+  cursor: pointer;
+}
+table.old-style {
+  width: 100%;
+  border-collapse: separate;
+}
+table.old-style td {
+  padding: 10px;
+  border-bottom: 1px solid #e1e8f0;
+}
+.border-img {
+  border: 1px solid #e1e8f0;
+}
+.form-control:not(select) {
+  background: #fff;
+}
+.form-control, input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text], textarea {
+  border: 1px solid #d2dce8;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+}
+.image-select {
+  cursor: pointer;
+  border: 1px solid #e1e8f0;
+  overflow: hidden;
+}
+.image-select.selected {
+  border: 1px solid #92bf45;
+  margin: 0;
+}
+.image-select .product-img {
+  white-space: nowrap;
+  height: 210px;
+}
+.image-select.selected .product-img {
+  position: relative;
+  border: none!important;
+  margin: 10px;
+}
+.image-select .product-img-action {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-select img {
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.image-select .border-img {
+  border: none;
+}
+.image-select.selected .product-img .icon-selected-box {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  display: block;
+  padding-top: 7px;
+  height: 30px;
+  width: 30px;
+  background: #fff;
+  border: 1px solid #92bf45;
+}
+.image-select:hover .image-link {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #a5adb3;
+  text-align: center;
+}
+.image-select:hover .image-link:hover {
+  background: #f5f6f7;
+}
+.image-select:hover .image-link a {
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+}
+
+.product-detail {
+  border: 1px solid #e1e8f0;
+  border-radius: 5px;
+  height: 450px;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}

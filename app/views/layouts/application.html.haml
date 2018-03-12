@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{ content: "text/html; charset=UTF-8", "http-equiv": "Content-Type" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    = favicon_link_tag "upinus-favicon.png"
+    = csrf_meta_tags
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :integrity => "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", :rel => "stylesheet"}/
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js", :type => "text/javascript"}
+    %script{:crossorigin => "anonymous", :integrity => "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", :src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+  %body
+    .container
+      = yield

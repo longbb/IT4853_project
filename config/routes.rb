@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  get "crawl", to: "crawler#crawl"
+  root "search#search"
+  get "results", to: "search#result"
+  get "crawl", to: "crawler#start"
+  get "search", to: "search#search"
 end

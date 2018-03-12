@@ -1,0 +1,32 @@
+.container-fluid.search
+  .row
+    .col-xs-6.col-xs-offset-4
+      %img.logo-img{ src: asset_path("logo.png") }
+  .row
+    .col-xs-8.col-xs-offset-2
+      .input-group
+        .input-group-btn.search-panel
+          %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+            %span#search_concept All
+            %span.caret
+          %ul.dropdown-menu{:role => "menu"}
+            %li
+              %a{:href => "#contains"} Example 1
+            %li
+              %a{:href => "#its_equal"} Example 2
+            %li
+              %a{:href => "#greather_than"} Example 3
+            %li
+              %a{:href => "#less_than"} Example 4
+            %li.divider
+            %li
+              %a{:href => "#all"} All
+        %input#search_param{:name => "search_param", :type => "hidden", :value => "all"}/
+        %input.form-control{:name => "x", :placeholder => "Search", :type => "text"}/
+        %span.input-group-btn
+          %button.btn.btn-default{:type => "button"}
+            %span.glyphicon.glyphicon-search
+%center{ style: "margin-top: 20px;" }
+  %h5
+    Find all products from ebay.com
+
