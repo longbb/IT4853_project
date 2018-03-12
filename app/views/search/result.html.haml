@@ -1,0 +1,119 @@
+.row.space-top
+  .col-md-12
+    .panel
+      = form_tag results_path, method: :get do
+        .panel-body.align-center
+          .row
+            .col-xs-9
+              / %input.form-control.input-lg{:name => "filter[keywords]", :placeholder => "Enter Keywords", :type => "text"}/
+              = text_field_tag :query, params[:query], placeholder: "Enter your search query here", class: "form-control input-lg"
+            .col-md-3.col-xs-3.align-right
+              %button.btn.btn-primary.btn-lg.btn-block{:type => "submit"} Search
+- if @result["docs"].length > 0
+  About #{ @result["numFound"] } results
+  - @result["docs"].each do |item|
+    - product_id = item["link_product"][0].split("/").last
+    %div
+      .row.space-top
+        .col-md-12
+          .product-detail
+            .container-fluid
+              / Nav tabs
+              %ul.nav.nav-tabs{:role => "tablist"}
+                %li.active{:role => "presentation"}
+                  %a{"data-toggle" => "tab", :href => "#product" + product_id, :role => "tab" } Product
+                - if item["variants.inventory"].present?
+                  %li{:role => "presentation"}
+                    %a{"data-toggle" => "tab", :href => "#variants" + product_id, :role => "tab" }
+                      Variants
+                      %span.badge.badge-tab.number-variants{ style: "margin-left: 3px;" }
+                        = item["variants.inventory"].length
+                %li{:role => "presentation"}
+                  %a{"data-toggle" => "tab", :href => "#images" + product_id, :role => "tab" } Images
+              / Tab panes
+              .tab-content
+                .tab-pane.active{ :role => "tabpanel" , id: "product" + product_id }
+                  .tabs-body
+                    .row
+                      .col-md-12
+                        %h3
+                          %a.blue-color{:href => item["link_product"][0], :target => "_blank"}
+                            = @highlighting[item["id"]]["title"][0].html_safe
+                    .row
+                      .col-md-3.col-xs-4
+                        .product-img
+                          %img.responsive-img.border-img{ src: item["images.big_pic"][0] }
+                      .col-md-9.col-xs-8
+                        .container-flex
+                        .itemAttr
+                          .section
+                            %h2.secHd
+                              Category:
+                              %span #{ @highlighting[item["id"]]["itemCategories"].join(", ").html_safe }
+                            %h2.secHd Item specifics
+                            = @highlighting[item["id"]]["description"][0].html_safe
+                - if item["variants.inventory"].present?
+                  .tab-pane{ role: "tabpanel", id: "variants" + product_id }
+                    .tabs-body
+                      %table.variants-table.old-style
+                        %thead
+                          %tr
+                            %th
+                            - if item["options"].present?
+                              - item["options"].each do |option|
+                                %th
+                                  = option
+                            %th Price
+                            %th Inventory
+                            %th Quality sold
+                        %tbody
+                          - item["variants.inventory"].each_with_index do |ebay_variant_id, index|
+                            %tr
+                              %td
+                                %img.border-img{ src: item["variants.image_url"][index], style: "max-width: 100px; max-height: 100px; margin: 5px" }
+                              - if item["options"].present?
+                                - item["options"].each_with_index do |option, option_index|
+                                  %td
+                                    = item["variants.properties"][index * item["options"].length + option_index]
+                              %td
+                                = item["variants.price"][index]
+                              %td
+                                = item["variants.inventory"][index]
+                              %td
+                                = item["variants.quantity_sold"][index]
+                .tab-pane{ role: "tabpanel", id: "images" + product_id }
+                  .tabs-body
+                    .row
+                      - item["images.big_pic"].each do |image|
+                        .col-xs-3{ style: "padding-bottom: 15px;" }
+                          .image-select.selected
+                            .product-img
+                              .product-img-action
+                                %img.border-img{ src: image }
+                              / .image-link
+                              /   %img.pop{ src: image }
+    #imagemodal.modal{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+              %span.sr-only Close
+            %h4#myModalLabel.modal-title Image preview
+          .modal-body
+            %img.imagepreview{:src => "", :style => "width: 400px; height: 264px;"}/
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+  %center
+    .pagination
+      - (0...@total_page).each do |page|
+        - if page.to_i == @current_page.to_i
+          %a.active{ href: results_path(query: params[:query], page: page) }
+            = page + 1
+        - else
+          %a{ href: results_path(query: params[:query], page: page) }
+            = page + 1
+- else
+  %center
+    %h3
+      Can't not find the product with key word #{ params[:query] }

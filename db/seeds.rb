@@ -1,7 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+EbayProduct.create(link: "http://www.ebay.com/itm//132028127457", status: "un_crawl")
+EbayProduct.create(link: "http://www.ebay.com/itm//201853007115", status: "un_crawl")
+EbayProduct.create(link: "http://www.ebay.com/itm//252063564211", status: "un_crawl")
+EbayProduct.create(link: "http://www.ebay.com/itm//232198229854", status: "un_crawl")
